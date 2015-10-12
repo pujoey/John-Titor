@@ -9,7 +9,7 @@ As an experienced game player, I would like to see a game that includes elements
 * Technology tree - Large tree of technology to research.
 
 * Randomized Events - events that strengthen or hinders my research speed because this adds element of surprise which is adds fun and expectation.
-	
+	https://i.imgur.com/JcBUZ13.png
 * Winning/Losing - I win when the time machine is built and allows me to alter history, thus erasing other alternate reality and only MY timeline exist.
 	
 * Surrealism -  Visually I would like to see familiar surrounding such as mac windows/terminal/slack and some real events that happened because this allows me to be more immersive into the game and give me a sense of surrealism.

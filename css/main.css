@@ -1,0 +1,36 @@
+body {
+  background-color: aquamarine;
+}
+canvas {
+  color: white;
+}
+#gameArea {
+  position: absolute;
+  left:     50%;
+  top:      50%;
+}
+#gameCanvas {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+#statsPanel {
+  background-color: gray;
+  position: absolute;
+  width: 100%;
+  height: 8%;
+  bottom: 0;
+  opacity: 0.8;
+}
+#menu.main {
+  background-image: url('../images/logo.png');
+}
+#main {
+  display: none;
+  height: 60%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
