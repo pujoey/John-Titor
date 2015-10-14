@@ -2,23 +2,41 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>WDI Project1: The Game</title>
+		<title>John Titor: The Time Traveler</title>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
 
-	
-   
-
 	<div id="gameArea">
-	  <canvas id="gameCanvas"></canvas>
-	  <div id="dialogBox"><p>(Click on the dialog box to begin the game)
-	  <p></div>
+	 	<canvas id="gameCanvas"></canvas>
+	  	<div class="overlay">
+	  		<img src="images/titlelogo.png" alt="testing">
+	  		<h3>John Titor:<br> The Time Traveler</h3>
+	  	</div>
+		<div id="icons">
+			<table class="table">
+				<tr class="row">
+					<td>
+						<input type="image" id="computer" src="images/computer.png">
+					</td>
+				</tr>
+				<tr class="row">
+					<td>
+						<input type="image" id="computer" src="images/computer.png" style="display: none;">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="dialogBox">
+			<h5>(Click the dialog box to begin the game)</h5>
+<!-- 		  <a href='#' class='button'>Play</a> -->
+		</div>
 	</div>
 
-
-
+		<script src="js/data.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/script.js"></script>
+
 	</body>
 </html>
