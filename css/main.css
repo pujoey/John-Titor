@@ -24,9 +24,9 @@ canvas {
   margin: 0 auto 0;
   z-index: 10;
   width: 40%;
-  height: 70%;
+  height: 75%;
   top:  -60%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.7);
   transform: translateY(-50%);
   color: white;
 }
