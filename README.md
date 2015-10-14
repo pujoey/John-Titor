@@ -23,6 +23,8 @@ As an experienced game player, I would like to see a game that includes elements
 ---
 DONE:
 
+* Game Title and Logo - As a player, I would like to see game title and logo so that the game will be more recognizable to me.
+
 * Research Point on the title bar - As a player, I do NOT want to be glued to the game and would like to wait for the research point to be slowly accmulated and later come back to the game for more story event or new techs and I want it this way because I would be more inclined to keep the game running while I watch youtube and other stuff.
 
 * Game Intro - I would like to see background story of John Titor as intro and him acting as my guide to build the time machine through the game.
@@ -50,6 +52,10 @@ ICEBOX:
 * Advanced story - I would like to see increase in depth of the story.
 
 * Scrolling - It should allow me to scroll up and down  to give me the history of events.
+
+* Save/Load - As a player, if it is a long game, I would like to save/load because I do not want to lose my hard earned research points.
+
+
 
 
 
