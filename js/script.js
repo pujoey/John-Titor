@@ -9,8 +9,7 @@ function script() {
         charReady=true;
         $("#dialogBox" ).text(john.script[john.dialogCounter]);
           john.dialogCounter++; 
-          // gameCounter++;
-          console.log(gameCounter);
+          console.log(gameCounter);  //remove before final 
         }// end of if gameCounter < 8
 
       if (gameCounter === 8) { 
@@ -22,7 +21,6 @@ function script() {
           $('.button').hide(); 
           charReady = false;
           $("#dialogBox").hide();
-          // gameCounter++;
         });  // end of button click event
       } // enf of game counter at 8
 
@@ -33,14 +31,12 @@ function script() {
         charReady = true;
         $("#dialogBox").text(you.script[you.dialogCounter]);
           you.dialogCounter++; 
-          // gameCounter++;
           console.log(gameCounter);
         };  // end if event 9, 10, 11
 
       if (gameCounter==12) { 
         $("#dialogBox").hide();
         charReady = false;
-        // gameCounter++;
       };  // end if event 9, 10, 11
 
 
@@ -48,29 +44,18 @@ function script() {
     }); // end of click event on dialogbox
 
 
-
-    // diable computer until then - WIP
-
     // Click on computer 
     $( "#computer" ).on( "click", function() {
         $("#computer").attr("title", "Name: " + computer.name + "\n" 
           + "Cost: " + computer.cost + "\n" 
           + "Research Rate: " + computer.researchRate + "\n" 
           + "Owned: " + computer.owned);
-        // currentRate= computer.researchRate;
+
+          $("#dialogBox").show().text("You did research on " + computer.name);
+
+        currentRate= computer.researchRate;
         researchPt++;
     });
-
-    // Click on lab
-        $( "#lab" ).on( "click", function() {
-          lab.owned++;
-        $("#lab").attr("title", "Name: " + lab.name + "\n" 
-          + "Cost: " + lab.cost + "\n" 
-          + "Research Rate: " + lab.researchRate + "\n" 
-          + "Owned: " + lab.owned);
-        $("#dialogBox").hide();
-        currentRate= lab.researchRate;
-    }); //end of lab
 
 
 
@@ -79,8 +64,9 @@ function script() {
     var secs = 100 * 60;
     setInterval(function() {
         researchPt += currentRate;
-        facilityAvailable();
-        researchAvailable();
+        checkFacility(lab);
+        checkFacility(cern);
+        checkResearch();
     }, secs);
 
     // update html title to notify research PT
@@ -93,42 +79,48 @@ function script() {
 } //end of script
 
 //check if new research building is available
-function facilityAvailable() {
-        if (researchPt > lab.cost) {
-            if (!lab.append) {
-              $(".row").append("<td><input type='image' id='lab' src='images/lab.png' style='display: none;'></td>");
-                lab.append=true;
-              $("#dialogBox").show().text("New Facility Avilable!"); 
-                $( "#dialogBox" ).on( "click", function() {
-                    $("#dialogBox").hide();
-                });  
-            } // end of researchPt > lab.cost
+function checkFacility(facility) {
 
-            $( "#lab" ).on( "click", function() {
-                researchPt -= lab.cost;
-                currentRate = lab.researchRate;
-                currentBG = lab;
-                bgImage.src = currentBG.src;
-                $("#dialogBox").show().text("Congratulation! You purchased " + lab.name +" Research Rate +"+ lab.researchRate );
-                $("#lab").hide();
+  if (researchPt > lab.cost) {
+      if (!lab.append) {
+        $(".row").append("<td><input type='image' id='lab' src='images/lab.png' style='display: none;'></td>");
+          lab.append=true;
+        $("#dialogBox").show().text("New Facility Avilable!"); 
 
-            });  
+        // listening for facility purchases
+        $( "#lab" ).on( "click", function() {
+            if (researchPt > lab.cost) lab.owned++; console.log("lab.owned"+ lab.owned);
+            researchPt -= lab.cost;
+            currentRate += lab.researchRate;
+            currentBG = lab;
+            bgImage.src = currentBG.src;
 
-            $( "#dialogBox" ).on( "click", function() {
-                $("#dialogBox").hide();
-            });  
+            if (lab.owned === 1) { $("#dialogBox").show().text("Moving to NEW FACILITY...  Congratulation! You purchased a NEW " + lab.name +" Research Rate +"+ lab.researchRate ) } 
+            else { $("#dialogBox").show().text("Congratulation! You upgraded " + lab.name +" Research Rate +"+ lab.researchRate ); }
 
-            $("#lab").show();   
-        } //end if research lab
-}
+            $("#lab").attr("title", "Name: " + lab.name + "\n" 
+              + "Cost: " + lab.cost + "\n" 
+              + "Research Rate: " + lab.researchRate + "\n" 
+              + "Owned: " + lab.owned);
+              $("#lab").hide();
+        });  // end of click event on lab
+      } // end of if lab.append
 
-function researchAvailable() {
+        $( "#dialogBox" ).on( "click", function() {
+            $("#dialogBox").hide();
+        });  
+        $("#lab").show();   
+
+  } // end of researchPt > lab.cost
+}  // end of function checkFacility
+
+function checkResearch() {
         if (researchPt > tech1.cost) {
             if (tech1.isknown==[]) {
               $(".row").append("<td><input type='image' id='tech1' src='images/tech000.png' style='display: none;'></td>");
               $("#dialogBox").show().text("New Research Avilable!");          
             }
-            $("#lab").show();   
+
         } //end if research lab
 
 }

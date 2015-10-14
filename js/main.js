@@ -76,11 +76,6 @@ var render = function () {
       ctx.drawImage(charImage, currentChar.imgPos[0], 
         currentChar.imgPos[1], currentChar.imgPos[2], currentChar.imgPos[3], currentChar.imgPos[4], newHeight-242, 200, 242);
   }
-
-  // if (charReady) {
-  //   ctx.drawImage(charImage, 10, 0, 100, 121, 0, newHeight-242, 200, 242);
-  // }
-
   
   // Display research point
   ctx.fillStyle = "rgb(250, 250, 250)"; //white text
@@ -97,7 +92,6 @@ var main = function () {
   var delta = now - then;
 
   render();
-
   then = now;
 
   // Request to do this again ASAP

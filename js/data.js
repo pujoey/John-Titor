@@ -7,7 +7,7 @@ var currentBG = 0;
 
 /***************** LOCATION DATA DECLARATION ***************/
 var computer = {
-  name: "computer",
+  name: "Computer",
   cost: 0,
   researchRate: 0.17,
   owned: 1,
@@ -16,13 +16,22 @@ var computer = {
   imgPos: [0, 0, 1024, 576, 0, 0]
 };
 var lab = {
-  name: "Quatum Lab",
+  name: "Quantum Lab",
   cost: 10,
   researchRate: 0.34,
   owned: 0,
   src: "images/background/lab3.jpg",
   append: false,
   imgPos: [0, 0, 4000, 2400, 0, 0]
+};
+var cern = {
+  name: "CERN",
+  cost: 100,
+  researchRate: 0.68,
+  owned: 0,
+  src: "images/background/cern.jpg",
+  append: false,
+  imgPos: [0, 0, 1600, 823, 0, 0]
 };
 
 
