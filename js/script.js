@@ -24,7 +24,7 @@ function script() {
         });  // end of button click event
       } // enf of game counter at 8
 
-          // when player's research pt increased to 10
+          // when dialog counter increased to 10
       if (gameCounter ==9 || gameCounter==10 || gameCounter==11) { 
         $("#dialogBox").show();
         currentChar = you;
@@ -39,39 +39,25 @@ function script() {
         charReady = false;
       };  // end if event 9, 10, 11
 
-
       gameCounter++;
+
     }); // end of click event on dialogbox
 
+    /* update on computer icon to append new info on 
+    mouseover and listening to click to update research point */
+    updateComputer(); 
 
-    // Click on computer 
-    $( "#computer" ).mouseover(function() {
-        $("#computer").attr("title", "Name: " + computer.name + "\n" 
-          + "Total Research Rate: " + currentRate);
-    });
+    // check facility available bsed on available research points
+    updateFacility();
 
-    $( "#computer" ).on( "click", function() {
-          $("#dialogBox").show().text("You did some googling on your own " + computer.name);
-        currentRate= computer.researchRate;
-        researchPt++;
-    });
-
+    // check research available bsed on available research points
+    updateResearch();
 
     // increase research point by current rate
-    var secs = 1 * 60;
-    setInterval(function() {
-        researchPt += currentRate;
-        checkFacility(lab);
-        checkFacility(cern);
-        checkResearch(tech1);
-    }, secs);
+    updateResearchPt();
 
     // update html title to notify research PT
-    var secs = 50 * 60;
-    setInterval(function() {
-        $("title").text( parseFloat(researchPt).toFixed(2) + " Research Points Accumulated");
-    }, secs);
-
+    updateTitle();
 
 } //end of script
 
@@ -85,23 +71,26 @@ function checkFacility(facility) {
         $(".row").append("<td><input type='image' id="+facility.name+" src="+ facility.icon+" style='display: none;' height='50' width='50'></td>");
           facility.append=true;
 
+        $("#" + facility.name).attr("title", "Name: " + facility.name + "\n" 
+          + "Cost: " + facility.cost + "\n" 
+          + "Research Rate: " + facility.researchRate * facility.owned + "\n" 
+          + "Owned: " + facility.owned);
+
         $("#dialogBox").show().text("New Facility Avilable!"); 
 
         // listening for facility purchases
         $( "#" + facility.name ).on( "click", function() {
-            if (researchPt > facility.cost) facility.owned++; console.log("facility.owned"+ facility.owned);
+            if (researchPt > facility.cost) facility.owned++; 
             researchPt -= facility.cost;
             currentRate = facility.researchRate;
             currentBG = facility;
             bgImage.src = currentBG.src;
 
-            if (facility.owned === 1) { $("#dialogBox").show().text("Moving to NEW FACILITY...  Congratulation! You purchased a NEW " + facility.name +" Research Rate +"+ facility.researchRate ) } 
-            else { $("#dialogBox").show().text("Congratulation! You upgraded " + facility.name +" Research Rate +"+ facility.researchRate ); }
+            // check if purchasing facility for the first time
+            if (facility.owned === 1) { $("#dialogBox").show().text("Moving to NEW FACILITY...  Congratulation! You purchased a NEW " 
+              + facility.name +"\n Research Rate +"+ facility.researchRate ) } 
 
-            $("#" + facility.name).attr("title", "Name: " + facility.name + "\n" 
-              + "Cost: " + facility.cost + "\n" 
-              + "Research Rate: " + facility.researchRate * facility.owned + "\n" 
-              + "Owned: " + facility.owned);
+            else { $("#dialogBox").show().text("Congratulation! You upgraded " + facility.name +" (Research Rate +"+ facility.researchRate + ")" ); }
 
               $("#"+facility.name).hide();
         });  // end of click event on lab
@@ -120,7 +109,7 @@ function checkResearch(tech) {
       // if new research has not been append to row2 then do so, and then annouce new research to dialog box
       if (!tech.append) {
         $(".row2").append("<td><input type='image' id=" + tech.id + " src=" + tech.icon + " style='display: none;' height='50' width='50'></td>");
-        $("#dialogBox").show().text("Research data avilable on '" + tech.name + "'");  
+        $("#dialogBox").show().text("Possible research subject avilable on '" + tech.name + "'");  
         tech.append = true; 
 
         // TESTING MOUSEOVER
@@ -130,7 +119,7 @@ function checkResearch(tech) {
 
         // listening for research click to purchase
         $( "#" + tech.id ).on( "click", function() {
-            if (researchPt > tech.cost) tech.isResearched = true; console.log("tech.isResearched "+ tech.isResearched);  //REMOVE CONSOLE TESTING WHEN TESTED!!!
+            if (researchPt > tech.cost) tech.isResearched = true; 
             researchPt -= tech.cost;
             currentRate += tech.researchRate;
             tech.isResearched = true;  
@@ -138,7 +127,7 @@ function checkResearch(tech) {
             // display tech infomation on overlay
             $(".overlay").html("<img src="+tech.icon+" width=50% height=50%><h3>"
               +tech.name+"</h3><p><i>Research rate: +" + tech.researchRate + "</i><br><br>"
-              +tech.description+"</p>").css("fontSize", (newWidth / 1600) + 'em')
+              +tech.description+"</p>").css("fontSize", (newWidth / 2200) + 'em')
               .show();
 
             if (tech.isResearched == true) {
@@ -163,5 +152,58 @@ function checkResearch(tech) {
 
   } //end if researchPt > tech.cost
 } // end function checkResearch
+
+// check current status on computer
+function updateComputer() {
+    // Click on computer 
+    $( "#computer" ).mouseover(function() {
+        $("#computer").attr("title", "Name: " + computer.name + "\n" 
+          + "Total Research Rate: " + parseFloat(currentRate).toFixed(2) );
+    });
+
+    $( "#computer" ).on( "click", function() {
+          $("#dialogBox").show().text("You did some googling on your own " + computer.name);
+        currentRate= computer.researchRate;
+        researchPt++;
+    });
+}
+
+// increase research point by current rate
+function updateFacility() {
+    var secs = 3000; //3 sec 
+    setInterval(function() {
+        checkFacility(lab);
+        checkFacility(cern);
+    }, secs);
+}   
+
+// check research available bsed on available research points
+function updateResearch() {
+    var secs = 3000; //3 sec 
+    setInterval(function() {
+        checkResearch(tech1);
+        checkResearch(tech2);
+        checkResearch(tech3);
+        checkResearch(tech4);
+
+    }, secs); 
+}
+
+// increase research point by current rate
+function updateResearchPt() {   
+    var secs = 100;
+    setInterval(function() {
+      researchPt += currentRate;
+    }, secs);
+} 
+
+// update html title to notify research PT
+function updateTitle() {   
+    var secs = 3000;
+    setInterval(function() {
+        $("title").text( parseFloat(researchPt).toFixed(2) + " Research Points gained");
+    }, secs);
+} 
+
 
 script();

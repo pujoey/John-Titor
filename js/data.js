@@ -47,11 +47,58 @@ var tech1 = {
   challenge of tomorrow, God still watches and judges us. \
   Evil lurks in the datalinks as it lurked in the streets of yesteryear. \
   But it was never the streets that were evil. \
-  -- Sister Miriam Godwinson ,'A Blessed Struggle'",
+  <br> -- Sister Miriam Godwinson , 'A Blessed Struggle'",
   icon: "images/technology/tech002.png",
   src: "",
   cost: 10,
   researchRate: 0.005,
+  isResearched: false,
+  append: false
+};
+
+var tech2 = {
+  name: "Advanced Subatomic Theory",
+  id: "tech2",
+  description: "The substructure of the universe regresses infinitely \
+  towards smaller and smaller components. Behind atoms we find electrons, \
+  and behind electrons, quarks. Each layer unraveled reveals new secrets, \
+  but also new mysteries. \
+  <br> -- Academician Prokhor Zakharov , 'For I Have Tasted the Fruit'",
+  icon: "images/technology/tech012.png",
+  src: "",
+  cost: 100,
+  researchRate: 0.012,
+  isResearched: false,
+  append: false
+};
+
+var tech3 = {
+  name: "Social Psych",
+  id: "tech3",
+  description: "If you can discover a better way of life than office-holding \
+  for your future rulers, a well-governed city becomes a possibility. \
+    For only in such a state will those rule who are truly rich, \
+  not in gold, but in the wealth that makes happiness—a good and wise life. \
+  <br> -- Plato , 'The Republic'",
+  icon: "images/technology/tech004.png",
+  src: "",
+  cost: 100,
+  researchRate: 0.012,
+  isResearched: false,
+  append: false
+};
+
+var tech4 = {
+  name: "Applied Physics",
+  id: "tech4",
+  description: "Scientific theories are judged by the coherence they \
+  lend to our natural experience and the simplicity with which they do so. \
+  The grand principle of the heavens balances on the razor's edge of truth. \
+  <br> -- Comissioner Pravin Lal , 'A History of Science'",
+  icon: "images/technology/tech003.png",
+  src: "",
+  cost: 1000,
+  researchRate: 0.012,
   isResearched: false,
   append: false
 };

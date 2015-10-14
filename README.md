@@ -1,4 +1,4 @@
-# Project 1: The Game
+# John Titor: The Time Traveler
 
 ![alt text](https://i.imgur.com/uOsYDWc.png =500x "Mockup")
 ![alt text](https://i.imgur.com/b8SvFNt.png =500x "Image")
@@ -6,10 +6,6 @@
 As an experienced game player, I would like to see a game that includes elements of resource management/team building/research new technology
 
 * Team - I would like to see a set of friends in the beginning that have different skill sets to contribute to your team because this allows the characters as guide to game story progression and alert me to random events.
-
-* Resource Management- As a player, I gain research point when I climb different research tree because this gives me an advantage in research progression
-
-* Technology Tree - Tree of technology to research because it allows me to take different paths based on my decisions.
 
 * Randomized Events - events that strengthen or hinders my research speed because this adds element of surprise which is adds fun and expectation.
 
@@ -19,6 +15,7 @@ As an experienced game player, I would like to see a game that includes elements
 
 * Story Rich - As a player, I want the game to be rich in story telling because then I would be inclined to finish the game. To start out with I would include minimal story telling and make it scallable so game can expand in depth.
 
+* Depth in technology tree - As a gamer, I like to have more technologies because it's fun to "CLIMB" tech trees.
 
 ---
 DONE:
@@ -37,7 +34,11 @@ DONE:
 
 * Overlay in the middle - Graphical representation of events/research in the middle that gives me more information on the research currently being conducted.
 
+* Resource Management- As a player, I gain research point when I climb different research tree because this gives me an advantage in research progression
 
+* Technology Tree - Tree of technology to research because it allows me to take different paths based on my decisions.
+
+* Different branches in tech tree - As a gamer, I like to have different branches in research area because it's based on my playing style.
 ---
 
 
@@ -56,6 +57,9 @@ ICEBOX:
 * Save/Load - As a player, if it is a long game, I would like to save/load because I do not want to lose my hard earned research points.
 
 * Sound/Music - As a game player, sounds and music would be nice to have to make the game more immsersive for me.
+
+* More organized icons - As a player, it is an eye sore to see un-organized list of icons
+
 
 
 
