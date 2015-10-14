@@ -6,15 +6,11 @@ body {
 table {
   position: absolute;
    top: 0;
-  right: 10%;
+  right: 0;
 }
 th, td {
   width: 50px;
   height: 50px;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
 }
 canvas {
   z-index: 1;
@@ -30,11 +26,17 @@ canvas {
   transform: translateY(-50%);
   color: white;
 }
+.overlay p {
+  padding: 0 10px 0;
+  text-align: center;
+  margin: 0;
+}
 .overlay h3 {
   text-align: center;
+  margin: 0;
 }
 .overlay img {
-transform: translateY(10%);
+transform: translateY(0%);
   display: block;
   margin: 0 auto 0;
 }

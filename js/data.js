@@ -7,28 +7,31 @@ var currentBG = 0;
 
 /***************** LOCATION DATA DECLARATION ***************/
 var computer = {
-  name: "Computer",
+  name: "computer",
   cost: 0,
-  researchRate: 0.17,
+  researchRate: 0.017,
   owned: 1,
+  icon: "images/icons/computer.png",
   src: "images/background/bg03a4.jpg",
   append: false,
   imgPos: [0, 0, 1024, 576, 0, 0]
 };
 var lab = {
-  name: "Quantum Lab",
-  cost: 10,
-  researchRate: 0.34,
+  name: "lab",
+  cost: 1000,
+  researchRate: 0.134,
   owned: 0,
+  icon: "images/icons/lab.png",
   src: "images/background/lab3.jpg",
   append: false,
   imgPos: [0, 0, 4000, 2400, 0, 0]
 };
 var cern = {
   name: "CERN",
-  cost: 100,
-  researchRate: 0.68,
+  cost: 100000,
+  researchRate: 3.368,
   owned: 0,
+  icon: "images/icons/cern.png",
   src: "images/background/cern.jpg",
   append: false,
   imgPos: [0, 0, 1600, 823, 0, 0]
@@ -37,11 +40,20 @@ var cern = {
 
 /***************** TECHNOLOGY DATA DECLARATION ***************/
 var tech1 = {
-  name: "tech1 testing",
-  description: "Mauris pretium nibh ut urna iaculis, non blandit nulla lobortis. Nunc vel ipsum massa. Donec ullamcorper non risus sed ultrices.",
-  src: "images/technology/tech000.png",
+  name: "Information Networks",
+  id: "tech1",
+  description: "The righteous need not cower before the drumbeat \
+  of human progress. Though the song of yesterday fades into the \
+  challenge of tomorrow, God still watches and judges us. \
+  Evil lurks in the datalinks as it lurked in the streets of yesteryear. \
+  But it was never the streets that were evil. \
+  -- Sister Miriam Godwinson ,'A Blessed Struggle'",
+  icon: "images/technology/tech002.png",
+  src: "",
   cost: 10,
-  isKnown: false
+  researchRate: 0.005,
+  isResearched: false,
+  append: false
 };
 /***************** CHARACTER DATA DECLARATION ***************/
 var you = {
