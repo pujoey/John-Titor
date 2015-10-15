@@ -1,17 +1,32 @@
-/*************** SCRIPTING ************/
+/*
+Polymorphic function subscript execute events DIFFERENTLY
+based on number of arguments taken in arguments.length
+*/
+function subscript() {
+  
+console.log(arguments.length);
+
+}
+
+/*************** SCRIPTING - GAME STORY ************/
 function script() {
+
+
 
     // Intro to game background and mechanics with John Titor
     $("#dialogBox" ).on( "click", function() {
 
+      // starts the game intro
       if (gameCounter < 8) {
         $(".overlay").hide();
         charReady=true;
         $("#dialogBox" ).text(john.script[john.dialogCounter]);
           john.dialogCounter++; 
-          console.log(gameCounter);  //remove before final 
-        }// end of if gameCounter < 8
+          console.log(gameCounter);  //TESTING REMOVE BEFORE FINAL PUBLISH
+          if (john.dialogCounter==8) gameCounter=8;
+      }// end of if gameCounter < 8
 
+      // game counter === 8, append button and hide char john
       if (gameCounter === 8) { 
         //hide dialog box and char sprite at game counter 8
         $("#dialogBox").append("<a href='#' class='button'>OK</a>");
@@ -20,29 +35,52 @@ function script() {
         $('.button').on('click', function() {
           $('.button').hide(); 
           charReady = false;
-          $("#dialogBox").hide();
+          $("#dialogBox").text("");
+            gameCounter=9;
         });  // end of button click event
       } // enf of game counter at 8
 
-          // when dialog counter increased to 10
-      if (gameCounter ==9 || gameCounter==10 || gameCounter==11) { 
+      // when game counter increased to 9 starts dialog with yourself
+      if (gameCounter ==9 || gameCounter==10 || gameCounter==11) {
+        console.log("before you dialog" +gameCounter); 
         $("#dialogBox").show();
         currentChar = you;
         charReady = true;
         $("#dialogBox").text(you.script[you.dialogCounter]);
           you.dialogCounter++; 
-          console.log(gameCounter);
+          if (you.dialogCounter==4) gameCounter=13;
+          console.log(gameCounter);  //TESTING REMOVE BEFORE FINAL PUBLISH
         };  // end if event 9, 10, 11
 
-      if (gameCounter==12) { 
-        $("#dialogBox").hide();
+      if (gameCounter==13) { 
+        $("#dialogBox").text("");
         charReady = false;
+        // setTimeout(function(){ 
+          gameCounter = 15; 
+        // }, 5000);
       };  // end if event 9, 10, 11
 
-      gameCounter++;
+      // when game counter increased to 14 starts dialog with amelia
+      if (gameCounter === 15) {
+        currentChar = amelia;
+        charReady = true;
+        $("#dialogBox").show().text(amelia.script[amelia.dialogCounter]);
+          amelia.dialogCounter++; 
+          if (amelia.dialogCounter==7) gameCounter=18;
+          console.log(gameCounter);  //TESTING REMOVE BEFORE FINAL PUBLISH
+      }; // end of if (gameCounter === 14)
+
+      if (gameCounter ==18) {
+        $("#dialogBox").text("");
+        charReady = false;
+      }
+
+
 
     }); // end of click event on dialogbox
 
+
+/***************** UPDATING NUMBERS ************/
     /* update on computer icon to append new info on 
     mouseover and listening to click to update research point */
     updateComputer(); 
@@ -96,9 +134,6 @@ function checkFacility(facility) {
         });  // end of click event on lab
       } // end of if lab.append
 
-        $( "#dialogBox" ).on( "click", function() {
-            $("#dialogBox").hide();
-        });  
         $("#"+facility.name).show();   
 
   } // end if researchPt > lab.cost
@@ -115,7 +150,8 @@ function checkResearch(tech) {
         // TESTING MOUSEOVER
         $("#" + tech.id).attr("title", "Name: " + tech.name + "\n" 
           + "Cost: " + tech.cost + "\n" 
-          + "Benefit: research Rate +" + tech.researchRate);
+          + "Benefit: research Rate +" + tech.researchRate + "\n" 
+          + "Category: " + tech.category);
 
         // listening for research click to purchase
         $( "#" + tech.id ).on( "click", function() {
@@ -124,6 +160,7 @@ function checkResearch(tech) {
             currentRate += tech.researchRate;
             tech.isResearched = true;  
 
+
             // display tech infomation on overlay
             $(".overlay").html("<img src="+tech.icon+" width=50% height=50%><h3>"
               +tech.name+"</h3><p><i>Research rate: +" + tech.researchRate + "</i><br><br>"
@@ -131,6 +168,7 @@ function checkResearch(tech) {
               .show();
 
             if (tech.isResearched == true) {
+              gameCounter = tech.eventCounter;
               $("#"+tech.id).remove();
               $("#dialogBox").show().text("New information has been acquired on '" + tech.name + "'");
             } //  end if (tech.isResearched == true)
@@ -139,10 +177,6 @@ function checkResearch(tech) {
 
       } // end if (!tech.append)
         
-    // click dialogbox or overlay to hide
-    $( "#dialogBox" ).on( "click", function() {
-        $("#dialogBox").hide();
-    });
     $( ".overlay" ).on( "click", function() {
         $(".overlay").hide();
     });

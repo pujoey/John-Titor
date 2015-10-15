@@ -7,17 +7,15 @@ As an experienced game player, I would like to see a game that includes elements
 
 * Team - I would like to see a set of friends in the beginning that have different skill sets to contribute to your team because this allows the characters as guide to game story progression and alert me to random events.
 
-* Randomized Events - events that strengthen or hinders my research speed because this adds element of surprise which is adds fun and expectation.
-
 * Different Ending - As game player, I would like to have the freedom of choices that progress me to multiple endings.
 
-* Winning/Losing - I win when the time machine is built and allows me to alter history, thus erasing other alternate reality and only MY timeline exist.
+* Winning/Losing - I win when the time machine is built and allows me to alter history or take a different path to debunk John Titor's story as a hoax thus erasing other alternate reality and only MY timeline exist.
 
 * Story Rich - As a player, I want the game to be rich in story telling because then I would be inclined to finish the game. To start out with I would include minimal story telling and make it scallable so game can expand in depth.
 
-* Depth in technology tree - As a gamer, I like to have more technologies because it's fun to "CLIMB" tech trees.
-
 ---
+
+
 DONE:
 
 * Game Title and Logo - As a player, I would like to see game title and logo so that the game will be more recognizable to me.
@@ -39,12 +37,13 @@ DONE:
 * Technology Tree - Tree of technology to research because it allows me to take different paths based on my decisions.
 
 * Different branches in tech tree - As a gamer, I like to have different branches in research area because it's based on my playing style.
+
+
+
 ---
 
 
 ICEBOX:
-
-* Surrealism -  Visually I would like to see familiar surrounding such as mac windows/terminal/slack and some real events that happened because this allows me to be more immersive into the game and give me a sense of surrealism.
 
 * Place Logo/Title on the upper left - it allows me to go back to main page.
 
@@ -60,7 +59,9 @@ ICEBOX:
 
 * More organized icons - As a player, it is an eye sore to see un-organized list of icons
 
+* Randomized Events - events that strengthen or hinders my research speed because this adds element of surprise which is adds fun and expectation.
 
+* Depth in technology tree - As a gamer, I like to have more technologies because it's fun to "CLIMB" tech trees.
 
 
 

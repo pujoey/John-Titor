@@ -51,9 +51,11 @@ var tech1 = {
   icon: "images/technology/tech002.png",
   src: "",
   cost: 10,
+  category: "Time Travel",
   researchRate: 0.005,
   isResearched: false,
-  append: false
+  append: false,
+  eventCounter: 20
 };
 
 var tech2 = {
@@ -67,9 +69,11 @@ var tech2 = {
   icon: "images/technology/tech012.png",
   src: "",
   cost: 100,
+  category: "Time Travel",
   researchRate: 0.012,
   isResearched: false,
-  append: false
+  append: false,
+  eventCounter: 30
 };
 
 var tech3 = {
@@ -83,9 +87,11 @@ var tech3 = {
   icon: "images/technology/tech004.png",
   src: "",
   cost: 100,
+  category: "Hoax",
   researchRate: 0.012,
   isResearched: false,
-  append: false
+  append: false,
+  eventCounter: 35
 };
 
 var tech4 = {
@@ -98,9 +104,11 @@ var tech4 = {
   icon: "images/technology/tech003.png",
   src: "",
   cost: 1000,
+  category: "Time Travel",
   researchRate: 0.012,
   isResearched: false,
-  append: false
+  append: false,
+  eventCounter: 40
 };
 /***************** CHARACTER DATA DECLARATION ***************/
 var you = {
@@ -138,12 +146,12 @@ var john = {
 var amelia = {
   dialogCounter: 0,
   script: [
+          "(Your sister Amelia, tapped you from the back)",
           "Amelia: THAT WAS AWESOME!!!!!",
           "Amelia: Oh, sorry to spy on you but I overheard everything...",
           "Amelia: Do you think John's a REAL time traveler?",
           "Amelia: Tell you what I'll help you doing research too.",
-          "Amelia: I am not as smart as you but I will do my best!!",
-          "(Amelia will increase your research point every couple seconds.)"
+          "Amelia: I am not as smart as you but I will do my best!!"
           ],
   src: "images/faces.png",
   imgPos: [508, 0, 100, 123, 0]
