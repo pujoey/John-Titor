@@ -5,11 +5,8 @@
 
 As an experienced game player, I would like to see a game that includes elements of resource management/team building/research new technology
 
-* Different Ending - As game player, I would like to have the freedom of choices that progress me to multiple endings.
 
-* Ending - I win when the time machine is built and allows me to alter history or take a different path to debunk John Titor's story as a hoax thus erasing other alternate reality and only MY timeline exist.
-
-* Story Rich - As a player, I want the game to be rich in story telling because then I would be inclined to finish the game. To start out with I would include minimal story telling and make it scallable so game can expand in depth.
+* Story Rich - As a player, I want the game to be rich in story telling because then I would be inclined to finish the game. To start out with I would include minimal story telling and make it scallable so game can expand in depth.  --WIP
 
 ---
 
@@ -38,6 +35,11 @@ DONE:
 
 * Team - I would like to see a set of friends in the beginning that have different skill sets to contribute to your team because this allows the characters as guide to game story progression and alert me to random events.
 
+* Effect on icons when clicked - As a player, I would like to see color change or effect when I click on icons because this allows me to tell if I actually clicked on it or not.
+
+* Animating images - As a player, I would like to see animating effect on images this allows me to tell when something got changed instead of instantly appearing on scrren which gets hard when new item appears.
+
+* Ending - I win when the time machine is built and allows me to alter history or take a different path to debunk John Titor's story as a hoax thus erasing other alternate reality and only MY timeline exist.
 
 
 

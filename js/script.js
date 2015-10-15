@@ -103,19 +103,6 @@ function script() {
 
       // ending for track "Time Travel"
       initEnding();
-function initEnding() {
-  if (gameCounter === 99) {
-    currentChar= you;
-    $("#dialogBox").show().text("");
-
-
-
-
-
-  } //end if counter ===99
-} //end initEnding
-
-
 
     }); // end of click event on dialogbox
 
@@ -165,7 +152,7 @@ function checkFacility(facility) {
 
             // check if purchasing facility for the first time
             if (facility.owned === 1) { $("#dialogBox").show().text("Moving to NEW FACILITY...  Congratulation! You purchased a NEW " 
-              + facility.name +"\n Research Rate +"+ facility.researchRate ) } 
+              + facility.name +" (Research Rate +"+ facility.researchRate +").") } 
             else { $("#dialogBox").show().text("Congratulation! You upgraded " + facility.name +" (Research Rate +"+ facility.researchRate + ")" ); }
 
               $("#"+facility.name).hide();
@@ -173,6 +160,7 @@ function checkFacility(facility) {
       } // end of if !facility.append
 
       $("#"+facility.name).show();   
+
 
       function append() {
         $("#" + facility.name).attr("title", "Name: " + facility.name + "\n" 
@@ -182,6 +170,11 @@ function checkFacility(facility) {
       } // end of function append 
 
       append();
+
+      if (facility.name == "timeMachine" && facility.owned ==1 ) {
+         gameCounter = facility.eventCounter;
+      }
+
 
   } // end if researchPt > lab.cost
 }  // end function checkFacility
@@ -290,5 +283,31 @@ function updateTitle() {
     }, secs);
 } 
 
+// ending for different tracks by gameCounter
+function initEnding() {
+  if (gameCounter === 999) {
+
+    currentChar= you;
+    charReady = true;
+    $("#dialogBox")
+    .show()
+    .text(endingTimeTravel.script[endingTimeTravel.dialogCounter]);
+
+    endingTimeTravel.dialogCounter++;
+
+      // after endingTimeTravel.script finishes, render credit
+      if (endingTimeTravel.script.length===endingTimeTravel.dialogCounter) 
+      { 
+        setTimeout(function() {
+        $(".overlay").html("<img src='images/timetravelending.png'\
+          width=90% height=50%><h3><br><br>Thanks for playing <br>\
+          <br>John Title: The Time Traveler</h3><p><br>\
+          <br>Game Created by: Joey Lin</p>")
+          .css("fontSize", (newWidth / 2200) + 'em')
+          .show();
+          } , 3000)
+      } 
+  } //end if counter ===99
+} //end initEnding
 
 script();

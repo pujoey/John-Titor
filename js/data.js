@@ -41,7 +41,6 @@ var cern = {
   src: "images/background/cern.jpg",
   append: false,
   imgPos: [0, 0, 1600, 823, 0, 0],
-  eventCounter: -99
 };
 var timeMachine = {
   name: "timeMachine",
@@ -52,7 +51,7 @@ var timeMachine = {
   src: "images/background/timemachine.jpg",
   append: false,
   imgPos: [0, 0, 1920, 1080, 0, 0],
-  eventCounter: 99
+  eventCounter: 999
 };
 
 
@@ -128,6 +127,8 @@ var tech4 = {
   append: false,
   eventCounter: 40
 };
+
+
 /***************** CHARACTER DATA DECLARATION ***************/
 var you = {
   dialogCounter: 0,
@@ -194,6 +195,16 @@ var amelia = {
           ],
   src: "images/faces.png",
   imgPos: [508, 0, 100, 123, 0]
+};
+var endingTimeTravel = {
+  dialogCounter: 0,
+  script: [
+          "You: Finally, the time machine is built",
+          "You: It took tremendous effort for the whole team.",
+          "You: Oh, well, let's start the time machine.",
+          "Computer: Starting initiate sequence...please type in password",
+          "You: g..i..t..b..r..a..n..c..h..and ENTER!!"
+          ]
 };
 
 
