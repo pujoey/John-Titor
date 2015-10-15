@@ -1,4 +1,10 @@
-/***************** GAME DATA DECLARATION ***************/
+/*
+ data.js contains game global data variables, 
+ location data variables, technology data variables, 
+ character data variables, and image asset loading
+*/
+
+/***************** GAME GLOBAL DATA DECLARATION ***************/
 var gameCounter = 0; //counter used for game script
 var currentRate= 0; // current research rate that adds on to research PT
 var researchPt = 0; // research point use to purchase new 
@@ -10,7 +16,7 @@ var computer = {
   name: "computer",
   cost: 0,
   researchRate: 0.017,
-  owned: 1,
+  owned: 0,
   icon: "images/icons/computer.png",
   src: "images/background/bg03a4.jpg",
   append: false,
@@ -19,7 +25,7 @@ var computer = {
 var lab = {
   name: "lab",
   cost: 1000,
-  researchRate: 0.134,
+  researchRate: 1,
   owned: 0,
   icon: "images/icons/lab.png",
   src: "images/background/lab3.jpg",
@@ -29,12 +35,24 @@ var lab = {
 var cern = {
   name: "CERN",
   cost: 100000,
-  researchRate: 3.368,
+  researchRate: 30,
   owned: 0,
   icon: "images/icons/cern.png",
   src: "images/background/cern.jpg",
   append: false,
-  imgPos: [0, 0, 1600, 823, 0, 0]
+  imgPos: [0, 0, 1600, 823, 0, 0],
+  eventCounter: -99
+};
+var timeMachine = {
+  name: "timeMachine",
+  cost: 1000000,
+  researchRate: 200,
+  owned: 0,
+  icon: "images/icons/timeMachineIcon.png",
+  src: "images/background/timemachine.jpg",
+  append: false,
+  imgPos: [0, 0, 1920, 1080, 0, 0],
+  eventCounter: 99
 };
 
 
@@ -45,17 +63,17 @@ var tech1 = {
   description: "The righteous need not cower before the drumbeat \
   of human progress. Though the song of yesterday fades into the \
   challenge of tomorrow, God still watches and judges us. \
-  Evil lurks in the datalinks as it lurked in the streets of yesteryear. \
+  Evil lurks in the internet as it lurked in the streets of yesteryear. \
   But it was never the streets that were evil. \
   <br> -- Sister Miriam Godwinson , 'A Blessed Struggle'",
   icon: "images/technology/tech002.png",
   src: "",
   cost: 10,
-  category: "Time Travel",
+  track: "Time Travel",
   researchRate: 0.005,
   isResearched: false,
   append: false,
-  eventCounter: 20
+  eventCounter: 20 // initScript(20...
 };
 
 var tech2 = {
@@ -69,11 +87,11 @@ var tech2 = {
   icon: "images/technology/tech012.png",
   src: "",
   cost: 100,
-  category: "Time Travel",
+  track: "Time Travel",
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 30
+  eventCounter: 30 // no event 
 };
 
 var tech3 = {
@@ -86,12 +104,12 @@ var tech3 = {
   <br> -- Plato , 'The Republic'",
   icon: "images/technology/tech004.png",
   src: "",
-  cost: 100,
-  category: "Hoax",
+  cost: 50,
+  track: "Hoax",
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 35
+  eventCounter: 35 // initScript(35, ...
 };
 
 var tech4 = {
@@ -104,7 +122,7 @@ var tech4 = {
   icon: "images/technology/tech003.png",
   src: "",
   cost: 1000,
-  category: "Time Travel",
+  track: "Time Travel",
   researchRate: 0.012,
   isResearched: false,
   append: false,
@@ -115,16 +133,13 @@ var you = {
   dialogCounter: 0,
   script: [
           "You: That was a weird conversation.",
-          "You: Could he really be telling the truth?",
-          "You: For now, I'll follow his advice to do some research on my own.",
-          "You: I was just about to give up hope on anyone knowing who Tipler or Kerr was on this worldline.",
-          "You: The basics for time travel start at CERN in about a year and end in 2034 with the first 'time machine' built by GE.",
-          "You: Too bad you are not a scientist or I'd show my time machine to you.",
-          "You: If you still want to know about time travel, then why don't you start by learning the basics of time travel online first?",
-          "(Click on computer to start doing research on time travel)"
+          "You: Could he really be telling the truth, or is this just an eloborate HOAX?",
+          "You: I guess I will follow his advice to do some research on my own for now...",
+          "You: John, wait! Don't you think it's time to let me in on the secret of time travel?",
+          "You: ...OR is this all a big HOAX?"
           ],
   src: "images/faces.png",
-  imgPos: [255, 0, 100, 121, 0]
+  imgPos: [255, 0, 100, 121, 0],
 };
 
 var john = {
@@ -135,32 +150,59 @@ var john = {
           "John: This may come as a shock to you, but I am a TIME TRAVELER.",
           "John: I was just about to give up hope on anyone knowing who Tipler or Kerr was on this worldline.",
           "John: The basics for time travel start at CERN in about a year and end in 2034 with the first 'time machine' built by GE.",
-          "John: Too bad you are not a scientist or I'd show my time machine to you.",
-          "John: If you still want to know about time travel, then why don't you start by learning the basics of time travel online first?",
-          "(Click on computer to start doing research on time travel)"
+          "John: Too bad you know nothing about time travel or I'd teach you how to build a time machine.",
+          "John: If you still want to know about time travel, then why don't you start by learning the basics of time travel first?",
+          "(Click on computer to start doing research)",
+          "John: Congratulation, I've noticed your effort on researching 'Information Networks'.",
+          "John: Being able to access different infomation networks for recent research on algorithms \
+          for analyzing information...",
+          "John: ... and models that capture their basic propertie, sites such as IEEE, Quora, or Stackoverflow \
+          will be critical to your research on time travel.",
+          "John: ...Fine, here's a list for basic systems for a gravity distortion system that will allow time travel.",
+          "John:  Magnetic housing units for dual microsignularities,  \
+                  Electron injection manifold to alter mass and gravity of microsingularities.",
+          "John:  Cooling and x-ray venting system, \
+                  and lastly, gravity sensors (VGL system)",
+          "John: Like I said, all in due time... Keep up the good work."        
           ],
   src: "images/faces.png",
-  imgPos: [10, 0, 100, 121, 0]
+  imgPos: [0, 0, 115 , 130, 0]
 };
 
 var amelia = {
   dialogCounter: 0,
   script: [
-          "(Your sister Amelia, tapped you from the back)",
-          "Amelia: THAT WAS AWESOME!!!!!",
+          "(Your sister Amelia, taps you on the back)",
+          "Amelia: AWESOME SAUCE!!!!!",
           "Amelia: Oh, sorry to spy on you but I overheard everything...",
           "Amelia: Do you think John's a REAL time traveler?",
-          "Amelia: Tell you what I'll help you doing research too.",
-          "Amelia: I am not as smart as you but I will do my best!!"
+          "Amelia: Tell you what I'll help you do some research too.",
+          "Amelia: I am not as smart as you but I will do my best!!",
+          "( With each click on the computer icon on the \
+            upper right adds +1 to your research points. )",
+          "( The goal of the game is to gain as much research points as \
+            possible to research new technologies and build new buildings. )",
+          "( Hover mouse over the icons on the upper right to find more info. )",
+          "( Amelia's help adds 0.017 to your research rate continuously. )",
+          "( BE SURE TO THANK AMELIA! )",
+          "Amelia: Hey Bro, I see that you researched 'Social Psych'.",
+          "Amelia: When you research a tech that belongs to TRACK: HOAX.",
+          "Amelia: You will progress the game in the path to debunk John Titor's story as a HOAX.",
+          "Amelia: You will have to make a choice how the game ends.",
+          "Amelia: Research tech on the TRACK: TIME TRAVEL will bring you closer to build a time machine.",
+          "Amelia: Make sure you mouseover the research ICONs to find out which TRACK the tech belongs to."
           ],
   src: "images/faces.png",
   imgPos: [508, 0, 100, 123, 0]
 };
 
 
-var currentBG = computer;
-var currentChar = john;
 /***************** IMAGE ASSETS LOADING *****************/
+var currentBG = computer;  //begins the game with computer background
+var currentChar = john; //begins the game with char john
+
+
+//set background image
 var bgReady = false;
 var bgImage = new Image();
 bgImage.onload = function () {
@@ -168,20 +210,10 @@ bgImage.onload = function () {
 };
 bgImage.src = currentBG.src;
 
-// char image
+// set char image
 var charReady = false;
 var charImage = new Image();
 charImage.onload = function () {
   charReady = false;
 };
 charImage.src = "images/faces.png";
-
-
-
-// // icon image
-// var researchReady = false;
-// var researchImage = new Image();
-// researchImage.onload = function () {
-//   researchReady = true;
-// };
-// researchImage.src = "images/icons.png";

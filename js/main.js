@@ -1,3 +1,8 @@
+/*
+main.js contains data for rendering based on user's window.innerWidth/Length
+and event listener calls resize function to re-render when user resize window
+*/
+
 // testing file loading
 console.log("***** MAIN.JS LOADED!!! ***")
 
@@ -72,12 +77,11 @@ var render = function () {
   }
 
   if (charReady) {
-
       ctx.drawImage(charImage, currentChar.imgPos[0], 
         currentChar.imgPos[1], currentChar.imgPos[2], currentChar.imgPos[3], currentChar.imgPos[4], newHeight-242, 200, 242);
   }
   
-  // Display research point
+  // Display research point accumulated on the upper left screen
   ctx.fillStyle = "rgb(250, 250, 250)"; //white text
   ctx.font = "24px Helvetica"; //font style
   ctx.textAlign = "left"; //alignment
