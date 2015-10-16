@@ -269,7 +269,7 @@ function updateFacility() {
 
 // check research available bsed on available research points
 function updateResearch() {
-    var secs = 3000; //3 sec 
+    var secs = 1000; //3 sec 
     setInterval(function() {
 
         checkResearch(tech1);
@@ -292,7 +292,7 @@ function updateResearchPt() {
 
 // update html title to notify research PT
 function updateTitle() {   
-    var secs = 3000;
+    var secs = 1000;
     setInterval(function() {
         $("title").text( parseFloat(researchPt).toFixed(2) + " Research Points gained");
     }, secs);
