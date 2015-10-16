@@ -8,7 +8,6 @@
 var gameCounter = 0; //counter used for game script
 var currentRate= 0; // current research rate that adds on to research PT
 var researchPt = 0; // research point use to purchase new 
-// var currentCharPos = 0;  //NOT NEEDED DELETE IN FINAL
 var currentBG = 0;
 
 /***************** LOCATION DATA DECLARATION ***************/
@@ -72,7 +71,8 @@ var tech1 = {
   researchRate: 0.005,
   isResearched: false,
   append: false,
-  eventCounter: 20 // initScript(20...
+  eventCounter: 20,
+  voice: "./voices/angels.mp3"
 };
 
 var tech2 = {
@@ -90,7 +90,8 @@ var tech2 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 30 // no event 
+  eventCounter: 30, // no event 
+  voice: "./voices/univ.mp3"  
 };
 
 var tech3 = {
@@ -108,7 +109,8 @@ var tech3 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 35 // initScript(35, ...
+  eventCounter: 35, // initScript(35, ...
+  voice: "./voices/tech4.mp3"      
 };
 
 var tech4 = {
@@ -125,7 +127,8 @@ var tech4 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 40
+  eventCounter: 40,
+  voice: "./voices/tech3.mp3"   
 };
 
 var tech5 = {
@@ -145,7 +148,8 @@ var tech5 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 40
+  eventCounter: 40,
+  voice: "./voices/tech37.mp3"   
 };
 
 var tech6 = {
@@ -162,7 +166,8 @@ var tech6 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 40
+  eventCounter: 40,
+  voice: "./voices/tech48.mp3" 
 };
 
 var tech7 = {
@@ -179,7 +184,8 @@ var tech7 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 40
+  eventCounter: 40,
+  voice: "./voices/tech44.mp3" 
 };
 
 /***************** CHARACTER DATA DECLARATION ***************/
@@ -259,7 +265,7 @@ var endingTimeTravel = {
           "You: It took tremendous effort for the whole team.",
           "You: Oh, well, let's start the time machine.",
           "Computer: Starting initiate sequence...please type in password",
-          "You: g..i..t..b..r..a..n..c..h..and ENTER!!"
+          "You: g..i..t..c..h..e..c..k..o..u..t..m..a..s..t..e..r.. and ENTER!!"
           ]
 };
 

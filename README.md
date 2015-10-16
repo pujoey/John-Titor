@@ -43,13 +43,18 @@ DONE:
 
 * ICONs on the left side/darkens/brightens/hovers display info - icon selections brighten and darkened as research points allows because this is an easy way for me to tell which research ideas to pursue and what advantage it gives me.
 
+* Place favicon/Title on the tab - as a user of browser, using favicon should be standard.
+
+* More organized icons - As a player, it is an eye sore to see un-organized list of icons
+
+* Sound/Music - As a game player, audio files should play along when the tech appear to make the game more immsersive for me.
+
 
 ---
 
 
 ICEBOX:
 
-* Place Logo/Title on the upper left - it allows me to go back to main page.
 
 * Advanced story - I would like to see increase in depth of the story.
 
@@ -58,8 +63,6 @@ ICEBOX:
 * Save/Load - As a player, if it is a long game, I would like to save/load because I do not want to lose my hard earned research points.
 
 * Sound/Music - As a game player, sounds and music would be nice to have to make the game more immsersive for me.
-
-* More organized icons - As a player, it is an eye sore to see un-organized list of icons
 
 * Randomized Events - events that strengthen or hinders my research speed because this adds element of surprise which is adds fun and expectation.
 

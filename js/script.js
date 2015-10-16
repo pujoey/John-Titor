@@ -83,10 +83,6 @@ function script() {
       initScript(35, 36, amelia, 17);
       initScript(36, 37);
 
-
-
-
-
       // ending for track "Time Travel"
       initEnding();
 
@@ -166,51 +162,79 @@ function checkFacility(facility) {
 }  // end function checkFacility
 
 function checkResearch(tech) {
+
+  // icon appear when researchPt reaches half of tech.cost so player have a goal to work towards to
+  if (researchPt > tech.cost / 2 && researchPt < tech.cost) {
+
+    // if new research has not been append to row2 then do so, and then annouce new research to dialog box
+    if (!tech.append) {
+
+      $(".row2").append("<td><input type='image' id=" + tech.id 
+        + " src=" + tech.icon + " height='70' width='70'></td>");
+
+      $("#dialogBox").show().text("Possible research subject avilable on '" 
+        + tech.name + "'");  
+
+      // update info for MOUSEOVER
+      $("#" + tech.id).attr("title", "Name: " + tech.name + "\n" 
+        + "Cost: " + tech.cost + "\n" 
+        + "Research Rate: +" + tech.researchRate + "\n" 
+        + "Track: " + tech.track);
+
+      tech.append = true; 
+    }
+      // disable icon till 
+      $( "#"+tech.id ).prop( "disabled", true );
+  }
+
+  // enable icon and wait for click to purchase new tech
   if (researchPt > tech.cost) {
-      // if new research has not been append to row2 then do so, and then annouce new research to dialog box
-      if (!tech.append) {
-        $(".row2").append("<td><input type='image' id=" + tech.id + " src=" + tech.icon + " style='display: none;' height='70' width='70'></td>");
-        $("#dialogBox").show().text("Possible research subject avilable on '" + tech.name + "'");  
-        tech.append = true; 
 
-        // TESTING MOUSEOVER
-        $("#" + tech.id).attr("title", "Name: " + tech.name + "\n" 
-          + "Cost: " + tech.cost + "\n" 
-          + "Research Rate: +" + tech.researchRate + "\n" 
-          + "Track: " + tech.track);
+    $( "#"+tech.id ).prop( "disabled", false );
 
-        // listening for research click to purchase
-        $( "#" + tech.id ).on( "click", function() {
-            if (researchPt > tech.cost) tech.isResearched = true; 
-            researchPt -= tech.cost;
-            currentRate += tech.researchRate;
-            tech.isResearched = true;  
+    // update info for MOUSEOVER
+    $("#" + tech.id).attr("title", "Name: " + tech.name + "\n" 
+      + "Cost: " + tech.cost + "\n" 
+      + "Research Rate: +" + tech.researchRate + "\n" 
+      + "Track: " + tech.track);
 
 
-            // display tech infomation on overlay
-            $(".overlay").html("<img src="+tech.icon+" width=50% height=50%><h3>"
-              +tech.name+"</h3><p><i>Research rate: +" + tech.researchRate + "</i><br><br>"
-              +tech.description+"</p>").css("fontSize", (newWidth / 2000) + 'em')
-              .show();
+    // listening for research click to purchase
+    $( "#" + tech.id ).on( "click", function() {
 
-            if (tech.isResearched == true) {
-              gameCounter = tech.eventCounter;
-              $("#"+tech.id).closest("td").remove();
-              $("#dialogBox").show().text("(You have acquired new technology '" + tech.name + "')");
-            } //  end if (tech.isResearched == true)
+      if (researchPt > tech.cost) {
+        researchPt -= tech.cost;
+        currentRate += tech.researchRate;
+        tech.isResearched = true;  
+      }
 
-        });  // end of click event on lab
+      // display tech infomation on overlay
+      $(".overlay").html("<img src="+tech.icon+" width=50% height=50%><h3>"
+        +tech.name+"</h3><p><i>Research rate: +" + tech.researchRate + "</i><br><br>"
+        +tech.description+"</p>").css("fontSize", (newWidth / 2000) + 'em')
+        .show();
 
-      } // end if (!tech.append)
+      if (tech.voice) { $(".overlay").append("<audio controls autoplay><source src="+ tech.voice+"></audio>"); }    
+    
+
+      if (tech.isResearched == true) {
+        gameCounter = tech.eventCounter;
+        $("#"+tech.id).closest("td").remove();
+        $("#dialogBox").show().text("(You have acquired new technology '" + tech.name + "')");
+      } //  end if (tech.isResearched == true)
+
+    });  // end of click event on lab
         
     $( ".overlay" ).on( "click", function() {
         $(".overlay").hide();
+        $("audio").remove();
     });
 
     // shows tech when accmulated enough researh points  
     if (tech.isResearched == false) $("#"+tech.id).show();  
 
   } //end if researchPt > tech.cost
+
 } // end function checkResearch
 
 // check current status on computer
@@ -218,6 +242,7 @@ function updateComputer() {
     // Click on computer 
     $( "#computer" ).mouseover(function() {
         $("#computer").attr("title", "Name: " + computer.name + "\n" 
+          + "+ 1 research point for each click" + "\n"
           + "Total Research Rate: " + parseFloat(currentRate).toFixed(3) );
     });
 
@@ -244,7 +269,7 @@ function updateFacility() {
 
 // check research available bsed on available research points
 function updateResearch() {
-    var secs = 3000; //3 sec 
+    var secs = 1000; //3 sec 
     setInterval(function() {
 
         checkResearch(tech1);
@@ -267,7 +292,7 @@ function updateResearchPt() {
 
 // update html title to notify research PT
 function updateTitle() {   
-    var secs = 3000;
+    var secs = 1000;
     setInterval(function() {
         $("title").text( parseFloat(researchPt).toFixed(2) + " Research Points gained");
     }, secs);
@@ -303,5 +328,6 @@ function initEnding() {
       } 
   } //end if counter ===99
 } //end initEnding
+
 
 script();
