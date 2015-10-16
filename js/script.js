@@ -83,10 +83,6 @@ function script() {
       initScript(35, 36, amelia, 17);
       initScript(36, 37);
 
-
-
-
-
       // ending for track "Time Travel"
       initEnding();
 
@@ -192,6 +188,9 @@ function checkResearch(tech) {
               +tech.name+"</h3><p><i>Research rate: +" + tech.researchRate + "</i><br><br>"
               +tech.description+"</p>").css("fontSize", (newWidth / 2000) + 'em')
               .show();
+
+            if (tech.voice) { $(".overlay").append("<audio controls autoplay><source src="+ tech.voice+"></audio>"); }    
+            
 
             if (tech.isResearched == true) {
               gameCounter = tech.eventCounter;
@@ -303,5 +302,6 @@ function initEnding() {
       } 
   } //end if counter ===99
 } //end initEnding
+
 
 script();
