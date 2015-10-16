@@ -5,20 +5,21 @@
 
 ****************/
 
+
+
+
+
 /***
-Polymorphic function subscript execute events DIFFERENTLY
+polymorphic function subscript execute events DIFFERENTLY
 based on number of arguments taken in arguments.length
 
 2 arguments (currentGameCounter, futureGameCounter)
   means resetting dialog box and remove character
-
 4 arguments (currentGameCounter, futureGameCounter, 
           character, script starting pos, script ending pos )
-
 ****/
-
 function initScript() {
-var counter = arguments[3]
+
 
   // reset dialogbox and remove char from canvas
   if (arguments.length === 2) {
@@ -47,21 +48,6 @@ var counter = arguments[3]
 }
 
 /*************** SCRIPTING - GAME STORY ************/
-
-      /**** BUTTON TESTING *****/
-      // if (gameCounter === 8) { 
-      //   //hide dialog box and char sprite at game counter 8
-      //   $("#dialogBox").append("<a href='#' class='button'>OK</a>");
-         
-      //   // event listener for button clicked
-      //   $('.button').on('click', function() {
-      //     $('.button').hide(); 
-      //     charReady = false;
-      //     $("#dialogBox").text("");
-      //       gameCounter=9;
-      //   });  // end of button click event
-      // } // enf of game counter at 8
-
 
 function script() {
 
@@ -134,7 +120,7 @@ function checkFacility(facility) {
 
       // if new facility has not been append to row then do so, and then annouce new facility to dialog box
       if (!facility.append) {
-        $(".row").append("<td><input type='image' id="+facility.name+" src="+ facility.icon+" style='display: none;' height='50' width='50'></td>");
+        $(".row").append("<td><input type='image' id="+facility.name+" src="+ facility.icon+" style='display: none;' height='70' width='70'></td>");
           facility.append=true;
 
         append();  
@@ -183,7 +169,7 @@ function checkResearch(tech) {
   if (researchPt > tech.cost) {
       // if new research has not been append to row2 then do so, and then annouce new research to dialog box
       if (!tech.append) {
-        $(".row2").append("<td><input type='image' id=" + tech.id + " src=" + tech.icon + " style='display: none;' height='50' width='50'></td>");
+        $(".row2").append("<td><input type='image' id=" + tech.id + " src=" + tech.icon + " style='display: none;' height='70' width='70'></td>");
         $("#dialogBox").show().text("Possible research subject avilable on '" + tech.name + "'");  
         tech.append = true; 
 
@@ -204,12 +190,12 @@ function checkResearch(tech) {
             // display tech infomation on overlay
             $(".overlay").html("<img src="+tech.icon+" width=50% height=50%><h3>"
               +tech.name+"</h3><p><i>Research rate: +" + tech.researchRate + "</i><br><br>"
-              +tech.description+"</p>").css("fontSize", (newWidth / 2200) + 'em')
+              +tech.description+"</p>").css("fontSize", (newWidth / 2000) + 'em')
               .show();
 
             if (tech.isResearched == true) {
               gameCounter = tech.eventCounter;
-              $("#"+tech.id).remove();
+              $("#"+tech.id).closest("td").remove();
               $("#dialogBox").show().text("(You have acquired new technology '" + tech.name + "')");
             } //  end if (tech.isResearched == true)
 
@@ -252,6 +238,7 @@ function updateFacility() {
         checkFacility(lab);
         checkFacility(cern);
         checkFacility(timeMachine);
+
     }, secs);
 }   
 
@@ -259,11 +246,14 @@ function updateFacility() {
 function updateResearch() {
     var secs = 3000; //3 sec 
     setInterval(function() {
+
         checkResearch(tech1);
         checkResearch(tech2);
         checkResearch(tech3);
         checkResearch(tech4);
-
+        checkResearch(tech5);
+        checkResearch(tech6);
+        checkResearch(tech7);        
     }, secs); 
 }
 
@@ -285,8 +275,9 @@ function updateTitle() {
 
 // ending for different tracks by gameCounter
 function initEnding() {
-  if (gameCounter === 999) {
 
+  //initiate main ending time traveler track
+  if (gameCounter === 999) {
     currentChar= you;
     charReady = true;
     $("#dialogBox")
@@ -299,13 +290,16 @@ function initEnding() {
       if (endingTimeTravel.script.length===endingTimeTravel.dialogCounter) 
       { 
         setTimeout(function() {
-        $(".overlay").html("<img src='images/timetravelending.png'\
+        $("#dialogBox").text("");
+        charReady = false;  
+        $(".overlay").html("<img src='./images/timetravelending.png'\
           width=90% height=50%><h3><br><br>Thanks for playing <br>\
           <br>John Title: The Time Traveler</h3><p><br>\
           <br>Game Created by: Joey Lin</p>")
-          .css("fontSize", (newWidth / 2200) + 'em')
+          .css("fontSize", (newWidth / 2000) + 'em')
           .show();
           } , 3000)
+
       } 
   } //end if counter ===99
 } //end initEnding

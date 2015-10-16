@@ -41,6 +41,7 @@ DONE:
 
 * Ending - I win when the time machine is built and allows me to alter history or take a different path to debunk John Titor's story as a hoax thus erasing other alternate reality and only MY timeline exist.
 
+* ICONs on the left side/darkens/brightens/hovers display info - icon selections brighten and darkened as research points allows because this is an easy way for me to tell which research ideas to pursue and what advantage it gives me.
 
 
 ---
@@ -49,8 +50,6 @@ DONE:
 ICEBOX:
 
 * Place Logo/Title on the upper left - it allows me to go back to main page.
-
-* ICONs on the left side/darkens/brightens/hovers display info - icon selections brighten and darkened as research points allows because this is an easy way for me to tell which research ideas to pursue and what advantage it gives me.
 
 * Advanced story - I would like to see increase in depth of the story.
 

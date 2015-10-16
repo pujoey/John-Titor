@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  font-family: "Helvetica", Georgia, Serif;
 }
 
 table {
@@ -111,7 +112,6 @@ transform: translateY(0%);
   background-color: rgb(72,72,72);
   position: absolute;
   right: 10px;
-  border: 3px bold black;
   width: 70%;
   height: 20%;
   bottom: 0;
@@ -128,25 +128,4 @@ transform: translateY(0%);
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
-}
-
-.button {
-    width: 80px;
-    height: 40px;
-    line-height: 35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: #FFF;
-    text-decoration: none;
-    background: linear-gradient(#1879BD 50%, #084D79 50%);
-    text-align: center;
-    font-size: 20px;
-    font-family: sans-serif;
-}
-.button:hover {
-    background: linear-gradient(#678834 50%, #093905 50%);
-}
-.button:active {
-    background: linear-gradient(#EB7723 50%, #A80000 50%);
 }

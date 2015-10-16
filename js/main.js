@@ -30,7 +30,7 @@ if (newWidthToHeight > widthToHeight) {
 gameArea.style.marginTop = (-newHeight / 2) + 'px'; 
 gameArea.style.marginLeft = (-newWidth / 2) + 'px';
 // adjust fontsize based on width
-gameArea.style.fontSize = (newWidth / 500) + 'em';
+gameArea.style.fontSize = (newWidth / 600) + 'em';
 
 var gameCanvas = document.getElementById('gameCanvas');
 gameCanvas.width = newWidth;

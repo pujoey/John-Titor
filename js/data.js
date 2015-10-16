@@ -8,7 +8,7 @@
 var gameCounter = 0; //counter used for game script
 var currentRate= 0; // current research rate that adds on to research PT
 var researchPt = 0; // research point use to purchase new 
-var currentCharPos = 0;
+// var currentCharPos = 0;  //NOT NEEDED DELETE IN FINAL
 var currentBG = 0;
 
 /***************** LOCATION DATA DECLARATION ***************/
@@ -17,8 +17,8 @@ var computer = {
   cost: 0,
   researchRate: 0.017,
   owned: 0,
-  icon: "images/icons/computer.png",
-  src: "images/background/bg03a4.jpg",
+  icon: "./images/icons/computer.png",
+  src: "./images/background/bg03a4.jpg",
   append: false,
   imgPos: [0, 0, 1024, 576, 0, 0]
 };
@@ -27,8 +27,8 @@ var lab = {
   cost: 1000,
   researchRate: 1,
   owned: 0,
-  icon: "images/icons/lab.png",
-  src: "images/background/lab3.jpg",
+  icon: "./images/icons/lab.png",
+  src: "./images/background/lab3.jpg",
   append: false,
   imgPos: [0, 0, 4000, 2400, 0, 0]
 };
@@ -37,8 +37,8 @@ var cern = {
   cost: 100000,
   researchRate: 30,
   owned: 0,
-  icon: "images/icons/cern.png",
-  src: "images/background/cern.jpg",
+  icon: "./images/icons/cern.png",
+  src: "./images/background/cern.jpg",
   append: false,
   imgPos: [0, 0, 1600, 823, 0, 0],
 };
@@ -47,8 +47,8 @@ var timeMachine = {
   cost: 1000000,
   researchRate: 200,
   owned: 0,
-  icon: "images/icons/timeMachineIcon.png",
-  src: "images/background/timemachine.jpg",
+  icon: "./images/icons/timeMachineIcon.png",
+  src: "./images/background/timemachine.jpg",
   append: false,
   imgPos: [0, 0, 1920, 1080, 0, 0],
   eventCounter: 999
@@ -59,13 +59,13 @@ var timeMachine = {
 var tech1 = {
   name: "Information Networks",
   id: "tech1",
-  description: "The righteous need not cower before the drumbeat \
-  of human progress. Though the song of yesterday fades into the \
-  challenge of tomorrow, God still watches and judges us. \
-  Evil lurks in the internet as it lurked in the streets of yesteryear. \
-  But it was never the streets that were evil. \
-  <br> -- Sister Miriam Godwinson , 'A Blessed Struggle'",
-  icon: "images/technology/tech002.png",
+  description: "What’s more important, the data or the jazz? \
+  Sure, sure, ‘Information should be free’ and all that - \
+  but anyone can set information free. The jazz is in how you do it, \
+  what you do it to, and in almost getting caught without getting caught.\
+   The data is 1’s and 0’s. Life is the jazz. \
+  <br> -- Datatech Sinder Roze , 'Infobop'",
+  icon: "./images/technology/tech002.png",
   src: "",
   cost: 10,
   track: "Time Travel",
@@ -83,7 +83,7 @@ var tech2 = {
   and behind electrons, quarks. Each layer unraveled reveals new secrets, \
   but also new mysteries. \
   <br> -- Academician Prokhor Zakharov , 'For I Have Tasted the Fruit'",
-  icon: "images/technology/tech012.png",
+  icon: "./images/technology/tech012.png",
   src: "",
   cost: 100,
   track: "Time Travel",
@@ -101,7 +101,7 @@ var tech3 = {
     For only in such a state will those rule who are truly rich, \
   not in gold, but in the wealth that makes happiness—a good and wise life. \
   <br> -- Plato , 'The Republic'",
-  icon: "images/technology/tech004.png",
+  icon: "./images/technology/tech004.png",
   src: "",
   cost: 50,
   track: "Hoax",
@@ -118,9 +118,9 @@ var tech4 = {
   lend to our natural experience and the simplicity with which they do so. \
   The grand principle of the heavens balances on the razor's edge of truth. \
   <br> -- Comissioner Pravin Lal , 'A History of Science'",
-  icon: "images/technology/tech003.png",
+  icon: "./images/technology/tech003.png",
   src: "",
-  cost: 1000,
+  cost: 100,
   track: "Time Travel",
   researchRate: 0.012,
   isResearched: false,
@@ -128,6 +128,59 @@ var tech4 = {
   eventCounter: 40
 };
 
+var tech5 = {
+  name: "Intellectual Integrity",
+  id: "tech5",
+  description: "Man's unfailing capacity to believe what he prefers to be \
+  true rather than what the evidence shows to be likely and possible has \
+  always astounded me. We long for a caring Universe which will save us \
+  from our childish mistakes, and in the face of mountains of evidence to \
+  the contrary we will pin all our hopes on the slimmest of doubts. \
+  God has not been proven not to exist, therefore he must exist.\
+  <br> -- Academician Prokhor Zakharov , 'For I Have Tasted the Fruit'",
+  icon: "./images/technology/proj004.png",
+  src: "",
+  cost: 80,
+  track: "Hoax",
+  researchRate: 0.012,
+  isResearched: false,
+  append: false,
+  eventCounter: 40
+};
+
+var tech6 = {
+  name: "Secrets of the Human Brain",
+  id: "tech6",
+  description: "There are only two ways in which we can account for a \
+  necessary agreement of experience with the concepts of its objects: \
+  either experience makes these concepts possible or these concepts make experience possible.\
+  <br> -- Immanuel Kant , 'Critique of Pure Reason'",
+  icon: "./images/technology/proj009.png",
+  src: "",
+  cost: 200,
+  track: "Hoax",
+  researchRate: 0.012,
+  isResearched: false,
+  append: false,
+  eventCounter: 40
+};
+
+var tech7 = {
+  name: "Ethical Calculus",
+  id: "tech7",
+  description: "Some vices miss what is right because they are deficient, \
+  others because they are excessive, in feelings or in actions, \
+  while virtue finds and chooses the mean.\
+  <br> -- Aristotle , 'Nichomachean Ethics'",
+  icon: "./images/technology/proj024.png",
+  src: "",
+  cost: 500,
+  track: "Hoax",
+  researchRate: 0.012,
+  isResearched: false,
+  append: false,
+  eventCounter: 40
+};
 
 /***************** CHARACTER DATA DECLARATION ***************/
 var you = {
@@ -139,7 +192,7 @@ var you = {
           "You: John, wait! Don't you think it's time to let me in on the secret of time travel?",
           "You: ...OR is this all a big HOAX?"
           ],
-  src: "images/faces.png",
+  src: "./images/faces.png",
   imgPos: [255, 0, 100, 121, 0],
 };
 
@@ -166,7 +219,7 @@ var john = {
                   and lastly, gravity sensors (VGL system)",
           "John: Like I said, all in due time... Keep up the good work."        
           ],
-  src: "images/faces.png",
+  src: "./images/faces.png",
   imgPos: [0, 0, 115 , 130, 0]
 };
 
@@ -193,9 +246,12 @@ var amelia = {
           "Amelia: Research tech on the TRACK: TIME TRAVEL will bring you closer to build a time machine.",
           "Amelia: Make sure you mouseover the research ICONs to find out which TRACK the tech belongs to."
           ],
-  src: "images/faces.png",
+  src: "./images/faces.png",
   imgPos: [508, 0, 100, 123, 0]
 };
+
+/***************** GAME ENDINGS DIALOGS *****************/
+
 var endingTimeTravel = {
   dialogCounter: 0,
   script: [
@@ -227,4 +283,4 @@ var charImage = new Image();
 charImage.onload = function () {
   charReady = false;
 };
-charImage.src = "images/faces.png";
+charImage.src = "././images/faces.png";
