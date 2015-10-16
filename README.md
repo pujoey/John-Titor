@@ -47,7 +47,7 @@ DONE:
 
 * More organized icons - As a player, it is an eye sore to see un-organized list of icons
 
-
+* Sound/Music - As a game player, audio files should play along when the tech appear to make the game more immsersive for me.
 
 
 ---
