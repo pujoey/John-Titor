@@ -21,8 +21,12 @@ th, td {
 }
 
 td:active {
-    background-color: lightgray;  
+    background-color: lightgray; 
+    border-radius: 50%; 
 }
+/*td:disabled {
+  background-color: rgba(0,0,0,0.9);
+}*/
 
 /* Apply fadein animation to all images */
 img {

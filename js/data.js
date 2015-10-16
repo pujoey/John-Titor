@@ -109,7 +109,8 @@ var tech3 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 35 // initScript(35, ...
+  eventCounter: 35, // initScript(35, ...
+  voice: "./voices/tech4.mp3"      
 };
 
 var tech4 = {
@@ -126,7 +127,8 @@ var tech4 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 40
+  eventCounter: 40,
+  voice: "./voices/tech3.mp3"   
 };
 
 var tech5 = {
@@ -146,7 +148,8 @@ var tech5 = {
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 40
+  eventCounter: 40,
+  voice: "./voices/tech37.mp3"   
 };
 
 var tech6 = {
