@@ -167,28 +167,17 @@ function checkResearch(tech) {
   if (researchPt > tech.cost / 2 && researchPt < tech.cost) {
 
     // if new research has not been append to row2 then do so, and then annouce new research to dialog box
-    if (!tech.append) {
+    techAppend(tech);
 
-      $(".row2").append("<td><input type='image' id=" + tech.id 
-        + " src=" + tech.icon + " height='70' width='70'></td>");
-
-      $("#dialogBox").show().text("Possible research subject avilable on '" 
-        + tech.name + "'");  
-
-      // update info for MOUSEOVER
-      $("#" + tech.id).attr("title", "Name: " + tech.name + "\n" 
-        + "Cost: " + tech.cost + "\n" 
-        + "Research Rate: +" + tech.researchRate + "\n" 
-        + "Track: " + tech.track);
-
-      tech.append = true; 
-    }
-      // disable icon till 
-      $( "#"+tech.id ).prop( "disabled", true );
+    // disable icon till 
+    $( "#"+tech.id ).prop( "disabled", true );
   }
 
   // enable icon and wait for click to purchase new tech
   if (researchPt > tech.cost) {
+
+    
+    techAppend(tech);
 
     $( "#"+tech.id ).prop( "disabled", false );
 
@@ -206,7 +195,8 @@ function checkResearch(tech) {
         researchPt -= tech.cost;
         currentRate += tech.researchRate;
         tech.isResearched = true;  
-      }
+      
+      // } // end if research PT > tech.cost
 
       // display tech infomation on overlay
       $(".overlay").html("<img src="+tech.icon+" width=50% height=50%><h3>"
@@ -216,6 +206,7 @@ function checkResearch(tech) {
 
       if (tech.voice) { $(".overlay").append("<audio controls autoplay><source src="+ tech.voice+"></audio>"); }    
     
+      } // end if research PT > tech.cost
 
       if (tech.isResearched == true) {
         gameCounter = tech.eventCounter;
@@ -236,6 +227,26 @@ function checkResearch(tech) {
   } //end if researchPt > tech.cost
 
 } // end function checkResearch
+
+// Append tech icon to html
+function techAppend(tech) {
+    if (!tech.append) {
+
+      $(".row2").append("<td><input type='image' id=" + tech.id 
+        + " src=" + tech.icon + " height='70' width='70'></td>");
+
+      $("#dialogBox").show().text("Possible research subject avilable on '" 
+        + tech.name + "'");  
+
+      // update info for MOUSEOVER
+      $("#" + tech.id).attr("title", "Name: " + tech.name + "\n" 
+        + "Cost: " + tech.cost + "\n" 
+        + "Research Rate: +" + tech.researchRate + "\n" 
+        + "Track: " + tech.track);
+
+      tech.append = true; 
+    }
+  } // end techAppend  
 
 // check current status on computer
 function updateComputer() {
