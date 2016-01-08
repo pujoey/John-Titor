@@ -1,6 +1,9 @@
 <img align="left" alt="GA logo." title="General Assemb.ly" src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" height="90px">
 
-# John Titor: The Time Traveler WDI DTLA 6 Project 1
+# WDI DTLA 6 Project 1 
+##John Titor: The Time Traveler
+
+![Actual Page](https://i.imgur.com/b8SvFNt.png =300x "Image")
 ---
 ### Project Requirement
 
@@ -13,10 +16,17 @@
 - Use **semantic markup** for HTML and CSS (adhere to best practices)
 
 ---
+### About This Game
+
+A visual novel game based on the true story of John Titor who posted numerous predictions about events in the near future on several bulletin boards during 2000 and 2001 claiming to be a time traveler from 2036.
+
+**John Titor: The Time Traveler** is a HTML5 (mobile responsive) canvas game made with vanilla javascript/jQuery. 
+Player has to choose to believe in John Titor and focus effort on researching technology tree related to time travel OR decides to debunk John's story as a hoax by researching different technologies to expose John.
+
+---
 ### Project Wireframe
 
 ![John Titor Mockup](https://i.imgur.com/uOsYDWc.png =300x "Mockup")
-![Actual Page](https://i.imgur.com/b8SvFNt.png =300x "Image")
 
 ---
 ### Technology Used
