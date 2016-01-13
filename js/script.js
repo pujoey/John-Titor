@@ -133,7 +133,7 @@ function checkFacility(facility) {
 
 
             // check if purchasing facility for the first time
-            if (facility.owned === 1) { $("#dialogBox").show().text("Moving to NEW FACILITY...  Congratulation! You purchased a NEW "
+            if (facility.owned === 1) { $("#dialogBox").show().text("Moving to NEW FACILITY...  Congratulation! You constructed a "
               + facility.name +" (Research Rate +"+ facility.researchRate +").") }
             else { $("#dialogBox").show().text("Congratulation! You upgraded " + facility.name +" (Research Rate +"+ facility.researchRate + ")" ); }
 
@@ -330,8 +330,8 @@ function initEnding() {
         charReady = false;
         $(".overlay").html("<img src='./images/timetravelending.png'\
           width=90% height=50%><h3><br><br>Thanks for playing <br>\
-          <br>John Title: The Time Traveler</h3><p><br>\
-          <br>Game Created by: Joey Lin</p><audio controls autoplay><source src='./voices/openingMenu.wav'></audio>")
+          <br>John Titor: The Time Traveler</h3><p><br>\
+          <br>Game Made by: Joey Lin</p><audio controls autoplay><source src='./voices/openingMenu.wav'></audio>")
           .css("fontSize", (newWidth / 2000) + 'em')
           .show();
         } , 1000)
