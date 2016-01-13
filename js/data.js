@@ -1,13 +1,13 @@
 /*
- data.js contains game global data variables, 
- location data variables, technology data variables, 
+ data.js contains game global data variables,
+ location data variables, technology data variables,
  character data variables, and image asset loading
 */
 
 /***************** GAME GLOBAL DATA DECLARATION ***************/
 var gameCounter = 0; //counter used for game script
 var currentRate= 0; // current research rate that adds on to research PT
-var researchPt = 0; // research point use to purchase new 
+var researchPt = 0; // research point use to purchase new
 var currentBG = 0;
 
 /***************** LOCATION DATA DECLARATION ***************/
@@ -23,7 +23,7 @@ var computer = {
 };
 var lab = {
   name: "lab",
-  cost: 1000,
+  cost: 30,
   researchRate: 1,
   owned: 0,
   icon: "./images/icons/lab.png",
@@ -33,7 +33,7 @@ var lab = {
 };
 var cern = {
   name: "CERN",
-  cost: 100000,
+  cost: 100,
   researchRate: 30,
   owned: 0,
   icon: "./images/icons/cern.png",
@@ -43,7 +43,7 @@ var cern = {
 };
 var timeMachine = {
   name: "timeMachine",
-  cost: 1000000,
+  cost: 1000,
   researchRate: 200,
   owned: 0,
   icon: "./images/icons/timeMachineIcon.png",
@@ -66,7 +66,7 @@ var tech1 = {
   <br> -- Datatech Sinder Roze , 'Infobop'",
   icon: "./images/technology/tech002.png",
   src: "",
-  cost: 10,
+  cost: 5,
   track: "Time Travel",
   researchRate: 0.005,
   isResearched: false,
@@ -85,13 +85,13 @@ var tech2 = {
   <br> -- Academician Prokhor Zakharov , 'For I Have Tasted the Fruit'",
   icon: "./images/technology/tech012.png",
   src: "",
-  cost: 100,
+  cost: 20,
   track: "Time Travel",
   researchRate: 0.012,
   isResearched: false,
   append: false,
-  eventCounter: 30, // no event 
-  voice: "./voices/univ.mp3"  
+  eventCounter: 30, // no event
+  voice: "./voices/univ.mp3"
 };
 
 var tech3 = {
@@ -104,13 +104,13 @@ var tech3 = {
   <br> -- Plato , 'The Republic'",
   icon: "./images/technology/tech004.png",
   src: "",
-  cost: 50,
+  cost: 40,
   track: "Hoax",
   researchRate: 0.012,
   isResearched: false,
   append: false,
   eventCounter: 35, // initScript(35, ...
-  voice: "./voices/tech4.mp3"      
+  voice: "./voices/tech4.mp3"
 };
 
 var tech4 = {
@@ -122,13 +122,13 @@ var tech4 = {
   <br> -- Comissioner Pravin Lal , 'A History of Science'",
   icon: "./images/technology/tech003.png",
   src: "",
-  cost: 100,
+  cost: 50,
   track: "Time Travel",
   researchRate: 0.012,
   isResearched: false,
   append: false,
   eventCounter: 40,
-  voice: "./voices/tech3.mp3"   
+  voice: "./voices/tech3.mp3"
 };
 
 var tech5 = {
@@ -143,13 +143,13 @@ var tech5 = {
   <br> -- Academician Prokhor Zakharov , 'For I Have Tasted the Fruit'",
   icon: "./images/technology/proj004.png",
   src: "",
-  cost: 80,
+  cost: 50,
   track: "Hoax",
   researchRate: 0.012,
   isResearched: false,
   append: false,
   eventCounter: 40,
-  voice: "./voices/tech37.mp3"   
+  voice: "./voices/tech37.mp3"
 };
 
 var tech6 = {
@@ -161,13 +161,13 @@ var tech6 = {
   <br> -- Immanuel Kant , 'Critique of Pure Reason'",
   icon: "./images/technology/proj009.png",
   src: "",
-  cost: 200,
+  cost: 60,
   track: "Hoax",
   researchRate: 0.012,
   isResearched: false,
   append: false,
   eventCounter: 40,
-  voice: "./voices/tech48.mp3" 
+  voice: "./voices/tech48.mp3"
 };
 
 var tech7 = {
@@ -179,13 +179,13 @@ var tech7 = {
   <br> -- Aristotle , 'Nichomachean Ethics'",
   icon: "./images/technology/proj024.png",
   src: "",
-  cost: 500,
+  cost: 70,
   track: "Hoax",
   researchRate: 0.012,
   isResearched: false,
   append: false,
   eventCounter: 40,
-  voice: "./voices/tech44.mp3" 
+  voice: "./voices/tech44.mp3"
 };
 
 /***************** CHARACTER DATA DECLARATION ***************/
@@ -223,7 +223,7 @@ var john = {
                   Electron injection manifold to alter mass and gravity of microsingularities.",
           "John:  Cooling and x-ray venting system, \
                   and lastly, gravity sensors (VGL system)",
-          "John: Like I said, all in due time... Keep up the good work."        
+          "John: Like I said, all in due time... Keep up the good work."
           ],
   src: "./images/faces.png",
   imgPos: [0, 0, 115 , 130, 0]
